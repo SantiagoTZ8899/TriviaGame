@@ -105,26 +105,43 @@ $(document).ready(function() {
             image: "<img src='assets/images/q15.jpg' height='200px', width='300px'>"
         }
     ]
-
-    
 })
 
-
 //     select a question to start game    
+        function theQuestion() {
+            $("#qBox").append()
+        }
 
-//     start a timer of 20 seconds
-
-//     allow user to choose an answer with click
 
 //     function for when correct - add point to correct score
+        function win() {
+
+        }
 //     function when incorrect - add point to incorrect score
+
+        function lose() {
+
+        }
 //     ran out of time - add point to incorrect score
+
+        function outOfTime(){
+
+        }
+//     start a timer of 20 seconds
+        function time(){
+
+        }
+
 //     show if answer correct or incorrect after each question
 
 //     once user select an answer, move to next question and restart timer
 
-//     show user end-of-game screen with corrects, incorrects, and total score
+//     allow user to choose an answer with click
 
+//     show user end-of-game screen with corrects, incorrects, and total score
+        function finishedGame() {
+            
+        }
 //     after last question reset game with a button (not refresh page)
 //         reset scores
 //         restart questions
