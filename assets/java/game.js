@@ -120,7 +120,12 @@ $(document).ready(function() {
 
 //     function for when correct - add point to correct score
         function win() {
-
+            $("#qBox").html("<p>That's Right!</p>");
+            rightAnswers++;
+            let correctAnswer = questions[questionNumber].correctAnswer;
+            $("#qBox").append("<p>The answer is" + correctAnswer + "</p>" + questions[questionNumber].image);
+            setTimeout(nextQuestion, 4000);
+            questionNumber++;
         }
 //     function when incorrect - add point to incorrect score
 
