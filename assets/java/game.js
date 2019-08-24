@@ -105,17 +105,17 @@ $(document).ready(function() {
             image: "<img src='assets/images/q15.jpg' height='200px', width='300px'>"
         }
     ]
-})
+
 
 //     select a question to start game    
         function theQuestion() {
-            $("#qBox").append("<h3>" + questions[questionNumber].question + 
-            "</h3><p class='answers'>" + questions[questionNumber].answers[0] + 
+            $("#qBox").append("<p>" + questions[questionNumber].question + 
+            "</p><p class='answers'>" + questions[questionNumber].answers[0] + 
             "</p><p class='answers'>" + questions[questionNumber].answers[1] + 
             "</p><p class='answers'>" + questions[questionNumber].answers[2] + 
-            "</p><p class='answers'>" + questions[questionNumber].answers[3])
+            "</p><p class='answers'>" + questions[questionNumber].answers[3] + "</p>");
         }
-        console.log("#qBox" + theQuestion)
+        console.log("#qBox" + theQuestion);
 
 
 //     function for when correct - add point to correct score
@@ -133,8 +133,18 @@ $(document).ready(function() {
 
         }
 //     start a timer of 20 seconds
-        function time(){
-
+        function timeLimit(){
+            clock = setInterval(countDown, 1000);
+            function countDown(){
+                if (time < 1){
+                    clearInterval(clock);
+                    outOfTime();
+                }
+                if (time > 0) {
+                    time--;
+                }
+                $("#timer").text(time);
+            }
         }
 
 //     show if answer correct or incorrect after each question
@@ -155,3 +165,6 @@ $(document).ready(function() {
         function restartGame() {
 
         }
+
+
+})
