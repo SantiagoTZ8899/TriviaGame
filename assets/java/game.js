@@ -109,8 +109,13 @@ $(document).ready(function() {
 
 //     select a question to start game    
         function theQuestion() {
-            $("#qBox").append()
+            $("#qBox").append("<h3>" + questions[questionNumber].question + 
+            "</h3><p class='answers'>" + questions[questionNumber].answers[0] + 
+            "</p><p class='answers'>" + questions[questionNumber].answers[1] + 
+            "</p><p class='answers'>" + questions[questionNumber].answers[2] + 
+            "</p><p class='answers'>" + questions[questionNumber].answers[3]);
         }
+        console.log("#qBox" + theQuestion)
 
 
 //     function for when correct - add point to correct score
@@ -135,13 +140,18 @@ $(document).ready(function() {
 //     show if answer correct or incorrect after each question
 
 //     once user select an answer, move to next question and restart timer
+        function nextQuestion() {
 
+        }
 //     allow user to choose an answer with click
 
 //     show user end-of-game screen with corrects, incorrects, and total score
         function finishedGame() {
-            
+
         }
 //     after last question reset game with a button (not refresh page)
 //         reset scores
 //         restart questions
+        function restartGame() {
+
+        }
