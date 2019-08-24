@@ -146,6 +146,7 @@ $(document).ready(function() {
                 $("#timer").text(time);
             }
         }
+        console.log(timeLimit);
 
 //     show if answer correct or incorrect after each question
 
