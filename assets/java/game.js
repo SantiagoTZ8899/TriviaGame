@@ -113,7 +113,7 @@ $(document).ready(function() {
             "</h3><p class='answers'>" + questions[questionNumber].answers[0] + 
             "</p><p class='answers'>" + questions[questionNumber].answers[1] + 
             "</p><p class='answers'>" + questions[questionNumber].answers[2] + 
-            "</p><p class='answers'>" + questions[questionNumber].answers[3]);
+            "</p><p class='answers'>" + questions[questionNumber].answers[3])
         }
         console.log("#qBox" + theQuestion)
 
