@@ -106,7 +106,6 @@ $(document).ready(function() {
         }
     ]
 
-
 //     select a question to start game    
         function theQuestion() {
             $("#qBox").append("<p>" + questions[questionNumber].question + 
@@ -117,8 +116,8 @@ $(document).ready(function() {
         }
         console.log("#qBox" + theQuestion);
 
-
 //     function for when correct - add point to correct score
+
         function win() {
             $("#qBox").html("<p>That's Right!</p>");
             rightAnswers++;
@@ -128,6 +127,7 @@ $(document).ready(function() {
             questionNumber++;
         }
         console.log(rightAnswers)
+
 //     function when incorrect - add point to incorrect score
 
         function lose() {
@@ -152,6 +152,7 @@ $(document).ready(function() {
             }
         }
         console.log(questionNumber);
+
 //     start a timer of 20 seconds
         function timeLimit(){
             clock = setInterval(countDown, 1000);
@@ -166,7 +167,7 @@ $(document).ready(function() {
                 $("#timer").text(time);
             }
         }
-        console.log(timeLimit);
+        console.log(clock);
 
 //     show if answer correct or incorrect after each question
 
@@ -185,7 +186,7 @@ $(document).ready(function() {
                 let endMessage = "Guess more are right than wrong";
             }
             else (rightAnswer < wrongAnswers) {
-
+                let endMessage = "You SUUCCKK";
             }
         }
 //     after last question reset game with a button (not refresh page)
