@@ -114,7 +114,15 @@ $(document).ready(function() {
             "</p><p class='answers'>" + questions[questionNumber].answers[2] + 
             "</p><p class='answers'>" + questions[questionNumber].answers[3] + "</p>");
         }
-        console.log("#qBox" + theQuestion);
+        console.log(questionNumber);
+
+        function beginGame() {
+            $("#qBox").html("<h3> You have <span id='#timeLimit>" + timeLimit + "</span> to get it right </h3>");
+            theQuestion();
+            timeLimit();
+            outOfTime();
+        }
+        console.log(theQuestion, timeLimit)
 
 //     function for when correct - add point to correct score
 
@@ -143,10 +151,10 @@ $(document).ready(function() {
 
         function outOfTime(){
             if (time === 0) {
-                $("#gameScreen").html("<p>Are you slow in the head?</p>");
+                $("#qBox").html("<p>Are you slow in the head?</p>");
                 wrongAnswers++;
                 var correctAnswer = questions[questionCounter].correctAnswer;
-                $("#gameScreen").append("<p>The answer is" + "</p>" + questions[questionNumber].image);
+                $("#qBox").append("<p>The answer is" + "</p>" + questions[questionNumber].image);
                 setTimeout(nextQuestion, 4000);
                 questionCounter++;
             }
@@ -167,17 +175,20 @@ $(document).ready(function() {
                 $("#timer").text(time);
             }
         }
-        console.log(clock);
+        console.log(time);
 
-//     show if answer correct or incorrect after each question
 
+        //     show if answer correct or incorrect after each question
 //     once user select an answer, move to next question and restart timer
+
         function nextQuestion() {
 
         }
+
 //     allow user to choose an answer with click
 
 //     show user end-of-game screen with corrects, incorrects, and total score
+
         function finishedGame() {
             if (rightAnswer === questions.length) {
                 let endMessage = "Wow, what a geek.";
@@ -185,13 +196,19 @@ $(document).ready(function() {
             else if (rightAnswer > wrongAnswers) {
                 let endMessage = "Guess more are right than wrong";
             }
-            else (rightAnswer < wrongAnswers) {
+            else {
                 let endMessage = "You SUUCCKK";
             }
+            $("#qBox").html("<p> You got " + wins + "right. </p>" + "<br>" + "<p> You got " + lose + "wrong </p>");
+            $("#qBox").append("<h2 id='start'> Play Again </2>");
+            $("#resetGame").click(nextQuestion);
         }
+        console.log(rightAnswers, wrongAnswers)
+
 //     after last question reset game with a button (not refresh page)
 //         reset scores
 //         restart questions
+
         function restartGame() {
             let questionNumber = 0;
             let rightAnswers = 0;
