@@ -143,13 +143,10 @@ $(document).ready(function() {
 
         function outOfTime(){
             if (time === 0) {
-                $("#gameScreen").html("<p>You ran out of time!</p>");
+                $("#gameScreen").html("<p>Are you slow in the head?</p>");
                 wrongAnswers++;
                 var correctAnswer = questions[questionCounter].correctAnswer;
-                $("#gameScreen").append("<p>The answer was <span class='answer'>" + 
-                    correctAnswer + 
-                    "</span></p>" + 
-                    questions[questionCounter].image);
+                $("#gameScreen").append("<p>The answer is" + "</p>" + questions[questionNumber].image);
                 setTimeout(nextQuestion, 4000);
                 questionCounter++;
             }
@@ -181,14 +178,27 @@ $(document).ready(function() {
 
 //     show user end-of-game screen with corrects, incorrects, and total score
         function finishedGame() {
+            if (rightAnswer === questions.length) {
+                let endMessage = "Wow, what a geek.";
+            }
+            else if (rightAnswer > wrongAnswers) {
+                let endMessage = "Guess more are right than wrong";
+            }
+            else (rightAnswer < wrongAnswers) {
 
+            }
         }
 //     after last question reset game with a button (not refresh page)
 //         reset scores
 //         restart questions
         function restartGame() {
-
+            let questionNumber = 0;
+            let rightAnswers = 0;
+            let wrongAnswers = 0;
         }
+        console.log(questionNumber);
+        console.log(rightAnswers);
+        console.log(wrongAnswers);
 
 
 })
