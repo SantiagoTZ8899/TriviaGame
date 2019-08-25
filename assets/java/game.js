@@ -127,21 +127,34 @@ $(document).ready(function() {
             setTimeout(nextQuestion, 4000);
             questionNumber++;
         }
+        console.log(rightAnswers)
 //     function when incorrect - add point to incorrect score
 
         function lose() {
-            $("#qBox").html("<p>That's Right!</p>");
-            rightAnswers++;
+            $("#qBox").html("<p>You Suck!</p>");
+            wrongAnswers++;
             let correctAnswer = questions[questionNumber].correctAnswer;
             $("#qBox").append("<p>The answer is" + correctAnswer + "</p>" + questions[questionNumber].image);
             setTimeout(nextQuestion, 4000);
             questionNumber++;
         }
+        console.log(wrongAnswers)
 //     ran out of time - add point to incorrect score
 
         function outOfTime(){
-
+            if (time === 0) {
+                $("#gameScreen").html("<p>You ran out of time!</p>");
+                wrongAnswers++;
+                var correctAnswer = questions[questionCounter].correctAnswer;
+                $("#gameScreen").append("<p>The answer was <span class='answer'>" + 
+                    correctAnswer + 
+                    "</span></p>" + 
+                    questions[questionCounter].image);
+                setTimeout(nextQuestion, 4000);
+                questionCounter++;
+            }
         }
+        console.log(questionNumber);
 //     start a timer of 20 seconds
         function timeLimit(){
             clock = setInterval(countDown, 1000);
