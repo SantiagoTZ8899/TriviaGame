@@ -117,12 +117,30 @@ $(document).ready(function() {
         console.log(questionNumber);
 
         function beginGame() {
-            $("#qBox").html("<h3> You have <span id='#timeLimit>" + timeLimit + "</span> to get it right </h3>");
+            $("#qBox").html("<h3> You have <span id='timeLimit>" + time + "</span> to get it right </h3>");
             theQuestion();
             timeLimit();
             outOfTime();
         }
-        console.log(theQuestion, timeLimit)
+        console.log(time)
+
+//     start a timer of 20 seconds
+
+        function timeLimit(){
+            counter = setInterval(countDown, 1000);
+            
+            function countDown(){
+                if (time < 1){
+                    clearInterval(counter);
+                    outOfTime();
+                }
+                else if (time > 0) {
+                    time--;
+                }
+                $("#qBox").html(time);
+            }
+        }
+        console.log(time);
 
 //     function for when correct - add point to correct score
 
@@ -161,32 +179,35 @@ $(document).ready(function() {
         }
         console.log(questionNumber);
 
-//     start a timer of 20 seconds
-        function timeLimit(){
-            clock = setInterval(countDown, 1000);
-            function countDown(){
-                if (time < 1){
-                    clearInterval(clock);
-                    outOfTime();
-                }
-                if (time > 0) {
-                    time--;
-                }
-                $("#timer").text(time);
-            }
-        }
-        console.log(time);
-
-
-        //     show if answer correct or incorrect after each question
+//     show if answer correct or incorrect after each question
 //     once user select an answer, move to next question and restart timer
 
         function nextQuestion() {
-
+            if (questionNumber < questions.length) {
+                time = 20;
+                $("#qBox").html("<h3> You have <span id='timeLimit>" + time + "</span> to get it right </h3>");
+                theQuestion();
+                timeLimit();
+                outOfTime();
+            }
+            else {
+                finishedGame();
+            }
         }
 
 //     allow user to choose an answer with click
 
+        $("#qBox").on("click", ".answers", (function() {
+            var userGuess = $(this).text();
+            if (userGuess === questions[questionNumber].correctAnswer) {
+                clearInterval(clock);
+                win();
+            }
+            else {
+                clearInterval(clock);
+                lose();
+            }
+        }));
 //     show user end-of-game screen with corrects, incorrects, and total score
 
         function finishedGame() {
