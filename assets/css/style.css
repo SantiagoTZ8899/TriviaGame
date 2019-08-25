@@ -11,14 +11,13 @@
     font-size: 64pt;
 }
 #bottomText {
-    text-align: center;
     font-size: 32pt;
     font-family: 'Freckle Face', cursive;
-    border: 15px;
 }
 .container {
     background-color: skyblue;
 }
+
 #body {
     background-color: skyblue;
 }
