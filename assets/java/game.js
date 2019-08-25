@@ -106,15 +106,8 @@ $(document).ready(function() {
         }
     ]
 
-//     select a question to start game    
-        function theQuestion() {
-            $("#qBox").append("<p>" + questions[questionNumber].question + 
-            "</p><p class='answers'>" + questions[questionNumber].answers[0] + 
-            "</p><p class='answers'>" + questions[questionNumber].answers[1] + 
-            "</p><p class='answers'>" + questions[questionNumber].answers[2] + 
-            "</p><p class='answers'>" + questions[questionNumber].answers[3] + "</p>");
-        }
-        console.log(questionNumber);
+//     select a question to start game
+        // $("#qBox").beginGame();
 
         function beginGame() {
             $("#qBox").html("<h3> You have <span id='timeLimit>" + time + "</span> to get it right </h3>");
@@ -122,7 +115,17 @@ $(document).ready(function() {
             timeLimit();
             outOfTime();
         }
-        console.log(time)
+        console.log(time)   
+
+        function theQuestion() {
+            $("#qBox").html("<p>" + questions[questionNumber].question + 
+            "</p><p class='answers'>" + questions[questionNumber].answers[0] + 
+            "</p><p class='answers'>" + questions[questionNumber].answers[1] + 
+            "</p><p class='answers'>" + questions[questionNumber].answers[2] + 
+            "</p><p class='answers'>" + questions[questionNumber].answers[3] + "</p>");
+        }
+        console.log(questionNumber, questions);
+
 
 //     start a timer of 20 seconds
 
