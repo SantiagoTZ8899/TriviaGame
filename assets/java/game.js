@@ -130,7 +130,12 @@ $(document).ready(function() {
 //     function when incorrect - add point to incorrect score
 
         function lose() {
-
+            $("#qBox").html("<p>That's Right!</p>");
+            rightAnswers++;
+            let correctAnswer = questions[questionNumber].correctAnswer;
+            $("#qBox").append("<p>The answer is" + correctAnswer + "</p>" + questions[questionNumber].image);
+            setTimeout(nextQuestion, 4000);
+            questionNumber++;
         }
 //     ran out of time - add point to incorrect score
 
