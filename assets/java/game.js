@@ -109,29 +109,29 @@ $(document).ready(function() {
 //     select a question to start game
         // $("#qBox").beginGame();
 
-        function beginGame() {
-            $("#qBox").html("<h3> You have <span id='timeLimit>" + time + "</span> to get it right </h3>");
-            theQuestion();
-            timeLimit();
-            outOfTime();
-        }
-        console.log(time)   
-
         function theQuestion() {
             $("#qBox").html("<p>" + questions[questionNumber].question + 
             "</p><p class='answers'>" + questions[questionNumber].answers[0] + 
             "</p><p class='answers'>" + questions[questionNumber].answers[1] + 
             "</p><p class='answers'>" + questions[questionNumber].answers[2] + 
             "</p><p class='answers'>" + questions[questionNumber].answers[3] + "</p>");
+            beginGame();
         }
         console.log(questionNumber, questions);
 
+        function beginGame() {
+            $("#timer").html("<h3> You have <span id='timeLimit>" + time + "</span> to get it right </h3>");
+            theQuestion();
+            timeLimit();
+            outOfTime();
+        }
+        console.log(time)  
 
 //     start a timer of 20 seconds
 
         function timeLimit(){
-            counter = setInterval(countDown, 1000);
-            
+            let counter = setInterval(countDown, 1000);
+            let time = 20;
             function countDown(){
                 if (time < 1){
                     clearInterval(counter);
@@ -140,7 +140,7 @@ $(document).ready(function() {
                 else if (time > 0) {
                     time--;
                 }
-                $("#qBox").html(time);
+                $("#timer").html(time);
             }
         }
         console.log(time);
@@ -201,13 +201,13 @@ $(document).ready(function() {
 //     allow user to choose an answer with click
 
         $("#qBox").on("click", ".answers", (function() {
-            var userGuess = $(this).text();
+            let userGuess = $(this).text();
             if (userGuess === questions[questionNumber].correctAnswer) {
-                clearInterval(clock);
+                clearInterval(counter);
                 win();
             }
             else {
-                clearInterval(clock);
+                clearInterval(counter);
                 lose();
             }
         }));
@@ -225,8 +225,8 @@ $(document).ready(function() {
             }
             $("#qBox").html("<p> You got " + wins + "right. </p>" + "<br>" + "<p> You got " + lose + "wrong </p>");
             $("#qBox").append("<h2 id='start'> Play Again </2>");
-            $("#resetGame").click(nextQuestion);
-        }
+            $("#resetGame").on("click", (restartGame)
+            )}
         console.log(rightAnswers, wrongAnswers)
 
 //     after last question reset game with a button (not refresh page)
