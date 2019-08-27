@@ -1,11 +1,14 @@
+
+let questionNumber = 0;
+let time = 20;
+let rightAnswers = 0;
+let wrongAnswers = 0;
+
 $(document).ready(function() {
 // Display questions - list of questions
 //     array of abjects
 //         question object, plus 4 answers
-    let questionNumber = 0;
-    let time = 20;
-    let rightAnswers = 0;
-    let wrongAnswers = 0;
+    
 
     let questions = [
         {
@@ -228,8 +231,10 @@ $(document).ready(function() {
             timeLimit();
             outOfTime();
         }
-        console.log(time)  
+        console.log(time);
         
+        beginGame();
+
 //     allow user to choose an answer with click
 
         $("#qBox").on("click", ".answers", (function() {
