@@ -1,6 +1,6 @@
 
 let questionNumber = 0;
-let time = 20;
+let time = 5;
 let rightAnswers = 0;
 let wrongAnswers = 0;
 
@@ -108,17 +108,25 @@ $(document).ready(function() {
             image: "<img src='assets/images/q15.jpg' height='200px', width='300px'>"
         }
     ];
+    console.log(questions.length);
+    let qL = questions.length;
+    function x(){
+        qL--;
+        console.log(questions.length);
+    }
+    x();
+    console.log(questions.length);
 
 //     select a question to start game
         // $("#qBox").beginGame();
 
         function theQuestion() {
-            $("#qBox").append("<p>" + questions[questionNumber].question + 
+            $("#qBox").html("<p>" + questions[questionNumber].question + 
             "</p><p class='answers'>" + questions[questionNumber].answers[0] + 
             "</p><p class='answers'>" + questions[questionNumber].answers[1] + 
             "</p><p class='answers'>" + questions[questionNumber].answers[2] + 
             "</p><p class='answers'>" + questions[questionNumber].answers[3] + "</p>");
-            beginGame();
+            
         }
         console.log(questionNumber, questions);
 
@@ -152,7 +160,8 @@ $(document).ready(function() {
                 $("#qBox").html("<p>Are you slow in the head?</p>");
                 wrongAnswers++;
                 var correctAnswer = questions[questionCounter].correctAnswer;
-                $("#qBox").append("<p>The answer is" + "</p>" + questions[questionNumber].image);
+                var correctIMAGE = questions[questionNumber].image;
+                $("#qBox").append("<p>The answer is" + "</p>" + correctAnswer).append(correctIMAGE);
                 setTimeout(nextQuestion, 4000);
                 questionCounter++;
             }
@@ -182,7 +191,7 @@ $(document).ready(function() {
 
         function timeLimit(){
             let counter = setInterval(countDown, 1000);
-            let time = 20;
+            // let time = 20;
             function countDown(){
                 if (time < 1){
                     clearInterval(counter);
@@ -208,6 +217,8 @@ $(document).ready(function() {
                 finishedGame();
             }
         }
+       
+        
 
         
             //     after last question reset game with a button (not refresh page)
@@ -225,15 +236,7 @@ $(document).ready(function() {
 
 // begin game after previous functions?
 
-        function beginGame() {
-            $("#timer").html("<h3> You have <span id='timeLimit>" + time + "</span> to get it right </h3>");
-            theQuestion();
-            timeLimit();
-            outOfTime();
-        }
-        console.log(time);
-        
-        beginGame();
+
 
 //     allow user to choose an answer with click
 
@@ -248,5 +251,16 @@ $(document).ready(function() {
                 lose();
             }
         }));
+
+
+        function beginGame() {
+            $("#timer").html("<h3> You have <span id='timeLimit>" + time + "</span> to get it right </h3>");
+            theQuestion();
+            timeLimit();
+            outOfTime();
+        }
+        console.log(time);
+        
+        beginGame();
 
 })
