@@ -1,31 +1,42 @@
 #body {
-    background-color: black;
-    background-image: url("../images/bg.jpg");
-    
+    background: url(../images/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: auto;
+    width: auto;
 }
-#top {
-    /* background-image: url("../images/bg.jpg"); */
-    height: 100%;
-    margin-bottom: 0;
-    /* padding-top: 25px; */
+
+.jumbotron {
+    background: rgb(226, 226, 226);
+	background-size: cover;
 }
-#bottom {
-    background-color: skyblue;
+
+h1, h2, h3 {
+    color: black;
+    padding-top: 40px;
+    font-family: 'Freckle Face', cursive;
+
 }
-.display-4 {
+
+#start {
+    color: rgb(221, 253, 103);
+}
+
+#timer {
+    font-weight: 1000;
+}
+
+.choices {
     font-family: 'Freckle Face', cursive;
     text-align: center;
-    font-size: 64pt;
+    font-size: 24pt;
+    border: groove 2px black;
+	border-radius: 5%;
+
 }
-#bottomText {
+#triviaScreen {
     text-align: center;
     font-size: 32pt;
     font-family: 'Freckle Face', cursive;
     padding-bottom: 25px;
-}
-.container {
-    /* background-color: skyblue; */
-}
-#resetGame {
-    border: 5px, black;
+    color: black;
 }
