@@ -7,7 +7,7 @@ A Trivia game using JavaScript for the logic and jQuery to manipulate HTML.
 
 ## Getting Started
 
-* Click the link below:
+* Click the link:
     https://santiagotz8899.github.io/TriviaGame/
 
 **South Park Trivia**
