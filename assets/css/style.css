@@ -1,42 +1,55 @@
 #body {
     background: url(../images/bg.jpg) no-repeat center center fixed;
     background-size: cover;
-    height: auto;
-    width: auto;
+    height: 100%;
+    width: 100%;
 }
 
 .jumbotron {
     background: rgb(226, 226, 226);
-	background-size: cover;
+    background-size: cover;
+    border: ridge 2px rgb(255, 252, 80);
+	border-width: medium;
 }
 
-h1, h2, h3 {
-    color: black;
+h1 {
+    color: rgb(255, 252, 80);
+    padding-top: 40px;
+    font-family: 'Freckle Face', cursive;
+    font-size: 48pt;
+}
+h2, h3 {
+    color: rgb(255, 252, 80);
     padding-top: 40px;
     font-family: 'Freckle Face', cursive;
 
 }
 
+h4 {
+    color: rgb(36, 31, 31);
+
+}
+
 #start {
-    color: rgb(221, 253, 103);
+    color: rgb(36, 31, 31);
 }
 
 #timer {
-    font-weight: 1000;
+    font-size: 24pt;
 }
 
 .choices {
     font-family: 'Freckle Face', cursive;
     text-align: center;
     font-size: 24pt;
-    border: groove 2px black;
-	border-radius: 5%;
+    border: ridge 2px black;
+	border-width: large;
 
 }
 #triviaScreen {
     text-align: center;
-    font-size: 32pt;
+    font-size: 28pt;
     font-family: 'Freckle Face', cursive;
-    padding-bottom: 25px;
+    padding-bottom: 40px;
     color: black;
 }

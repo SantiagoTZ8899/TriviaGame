@@ -219,7 +219,7 @@ let wrongAnswers = 0;
     function nextQuestion() {
         if (questionNumber < questions.length) {
             time = 20;
-            $("#triviaScreen").html("<h3>You have <span id='timer'>" + time + "</span> to get it right.</h3>");
+            $("#triviaScreen").html("<h4>You have <span id='timer'>" + time + "</span> seconds to get it right.</h4>");
             theQuestion();
             timer();
             userTimeout();
