@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 let questionNumber = 0;
-let time = 15;
+let time = 20;
 let rightAnswers = 0;
 let wrongAnswers = 0;
 
@@ -98,13 +98,13 @@ let wrongAnswers = 0;
         },
         {
             question: "Who ran against Ike for Kindergarten class president?",
-            answers: ["Filmore", "Clyde", "Jack", "Scotty"],
+            choices: ["Filmore", "Clyde", "Jack", "Scotty"],
             correctAnswer: "Filmore",
-            image: "<img src='assets/images/q14.jpg' height='200px', width='300px'>"
+            image: "<img src='assets/images/q14.png' height='200px', width='300px'>"
         },
         {
             question: "What is the name of Stan's sister?",
-            answers: ["Kelly", "Hailey", "Shelly", "Jelly"],
+            choices: ["Kelly", "Hailey", "Shelly", "Jelly"],
             correctAnswer: "Shelly",
             image: "<img src='assets/images/q15.jpg' height='200px', width='300px'>"
         }];
@@ -162,7 +162,7 @@ let wrongAnswers = 0;
         if (time === 0) {
             $("#triviaScreen").html("<p>You are too slow!</p>");
             wrongAnswers++;
-            var correctAnswer = questions[questionNumber].correctAnswer;
+            let correctAnswer = questions[questionNumber].correctAnswer;
             $("#triviaScreen").append("<p>The answer is <span class='answer'>" + 
                 correctAnswer +
                 "</span></p>" +
@@ -177,21 +177,21 @@ let wrongAnswers = 0;
 //     show user end-of-game screen with corrects, incorrects, and total score
     function answerScreen() {
         if (rightAnswers === questions.length) {
-            endMessage = "Wow, what a geek.";
-            bottomText = "Neeeeeerrrdddd!";
+            var endMessage = "Wow, what a geek.";
+            var bottomText = "Neeeeeerrrdddd!";
         }
         else if (rightAnswers > wrongAnswers) {
-            endMessage = "Guess more are right than wrong.";
-            bottomText = "You surprised everyone actually.";
+            var endMessage = "Guess more are right than wrong.";
+            var bottomText = "You surprised everyone actually.";
         }
         else {
-            endMessage = "You SUUCCKK!!!";
-            bottomText = "PFFFFTTTT!";
+            var endMessage = "You SUUCCKK!!!";
+            var bottomText = "PFFFFTTTT!";
         }
         $("#triviaScreen").html("<p>" + endMessage + "</p>" + "<p> You got " + 
-            rightAnswers + "right. </p>" + 
-            "<br>" + 
-            "<p> You got " + wrongAnswers + "wrong.</p>");
+            rightAnswers + " right. </p>" + 
+            "<p> You got " + wrongAnswers + " wrong.</p>");
+
         $("#triviaScreen").append("<h2 id='start'> Play Again </h2>");
 
         $("#bottomText").html(bottomText);
